@@ -1,0 +1,12 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>BingeIt</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let show of (shows|async)" (click)="openDetails(show)"> {{ show.name }} </button>
+  </ion-list>

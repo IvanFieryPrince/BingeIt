@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{show.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <img src="{{show?.image.original}}" onError="this.src='./app/assets/imgs/notfound.png';"/>
+      <br>
+      <div innerHTML="{{ show?.summary }}" height="25%"></div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <button ion-item *ngFor="let season of (seasons|async)" (click)="openDetails(season)"> {{season.number}} : {{season.episodeOrder}} Episodes
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

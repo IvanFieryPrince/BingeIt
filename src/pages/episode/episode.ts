@@ -38,5 +38,9 @@ export class EpisodePage {
   openDetails(episode) {
     this.navCtrl.push('PlayerPage', { episode: episode });
   }
+  home(){
+    this.navCtrl.setRoot('SeriesPage');
+    this.navCtrl.popToRoot();
+  }
 
 }

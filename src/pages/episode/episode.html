@@ -1,25 +1,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{season.episodeOrder}} Episodes</ion-title>
+    <ion-title>
+      Season : {{season.number}}
+    </ion-title>
+    <ion-buttons right clear>
+      <button (tap)="home()" clear>
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content>
-  <ion-card>
-    <ion-grid ion-item *ngFor="let episode of (episodes|async)" class="page-episode">
-      <ion-row>
-        <ion-col col-12>
-          <img src="{{episode?.image.original}}" alt="Image not available" onError="this.src='./app/assets/imgs/notfound.png';" cache/>
-        </ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col col-12>
-          <button ion-button color="light" full (click)="openDetails(episode)">{{episode.name}}</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <ion-card ion-item *ngFor="let episode of (episodes|async)" (click)="openDetails(episode)">
+    <ion-card-header>
+      Episode {{episode.number}} : {{episode.name}}
+    </ion-card-header>
+          <!-- <img src="{{episode?.image.original}}" alt="Image not available" onError="this.src='./app/assets/imgs/notfound.png';" cache/> -->
   </ion-card>
 </ion-content>

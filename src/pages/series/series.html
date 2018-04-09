@@ -7,6 +7,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let show of (shows|async)" (click)="openDetails(show)"> {{ show.name }} </button>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let show of (shows|async)">
+        <ion-card (tap)="openDetails(show)">
+          <img src="{{show.image.medium}}" cached/>
+          <ion-card-content text-center>
+            <p><b>{{ show.name }}</b></p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -11,7 +11,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class EpisodePage {
   season: any;
-  show:any;
   episodes:Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, apiProvider:ApiProvider) {
@@ -20,7 +19,7 @@ export class EpisodePage {
   }
 
   openDetails(episode) {
-    this.navCtrl.push('PlayerPage', { episode: episode });
+    this.navCtrl.push('EpisodeDetailPage', { episode: episode });
   }
   
   toroot(){

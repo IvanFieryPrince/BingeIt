@@ -18,4 +18,7 @@ export class ApiProvider {
   getEpisodes(Seasonid){
     return this.http.get('http://api.tvmaze.com/seasons/' + Seasonid + '/episodes');
   }
+  getEpisodeDetail(episodeid){
+    return this.http.get('http://api.tvmaze.com/episodes/'+episodeid);
+  }
 }

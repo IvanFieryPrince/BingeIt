@@ -5,7 +5,7 @@
       Season : {{season.number}}
     </ion-title>
     <ion-buttons right clear>
-      <button (tap)="home()" clear>
+      <button (click)="toroot()" clear>
         <ion-icon name="home"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,10 +14,13 @@
 
 
 <ion-content>
-  <ion-card ion-item *ngFor="let episode of (episodes|async)" (click)="openDetails(episode)">
-    <ion-card-header>
-      Episode {{episode.number}} : {{episode.name}}
-    </ion-card-header>
-          <!-- <img src="{{episode?.image.original}}" alt="Image not available" onError="this.src='./app/assets/imgs/notfound.png';" cache/> -->
-  </ion-card>
+  <ion-item *ngFor="let episode of (episodes|async)">
+    <ion-card ion-item *ngIf="!!episode.number" (click)="openDetails(episode)">
+      <img src="{{episode?.image.original}}" alt="Image not available" cache/>
+      <ion-card-header>
+        Episode {{episode.number}} : {{episode.name}}
+      </ion-card-header>
+            <!--  -->
+    </ion-card>
+  </ion-item>
 </ion-content>

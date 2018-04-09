@@ -22,4 +22,9 @@ export class SeasonPage {
     this.navCtrl.push('EpisodePage', { season: season });
   }
 
+  home(){
+    this.navCtrl.setRoot('SeriesPage');
+    this.navCtrl.popToRoot();
+  }
+
 }
